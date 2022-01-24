@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Pooling:
 
     def __init__(self, size):
@@ -9,7 +10,7 @@ class Pooling:
         h, w = image.shape // self.size
         for i in range(h):
             for j in range(w):
-                im_region = image[(i * self.size):((i + 1) * self.size),(j * self.size):((j + 1) * self.size)]
+                im_region = image[(i * self.size):((i + 1) * self.size), (j * self.size):((j + 1) * self.size)]
 
         def max_pooling(self, input):
             h, w, num_filters = input.shape

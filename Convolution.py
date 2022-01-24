@@ -3,15 +3,15 @@ import numpy as np
 
 class Conv:
     def __init__(self, size, num_filters):
-        self.size = size #3,5,7
+        self.size = size  # 3,5,7
         self.num_filters = num_filters
-        self.filters = np.random.randn(num_filters, size, size)/9 # Xavier,MSRA
+        self.filters = np.random.randn(num_filters, size, size) / (size * size)  # Xavier,MSRA
 
     def iterate_regions(self, image):
         h, w = image.shape
         for i in range(h - self.size + 1):
             for j in range(w - self.size + 1):
-                im_region = image[i: (i + self.size), j : (j+ self.size)]
+                im_region = image[i: (i + self.size), j: (j + self.size)]
                 yield im_region, i, j
 
     def forward(self, input):
